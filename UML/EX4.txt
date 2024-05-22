@@ -1,0 +1,1 @@
+r: de composição, pois um carro depende de um motor para funcionar. A relação é de n para n pois um motor pode estar presente em diversos carros e um carro pode ter um ou mais motores (e.g: carro híbrido).
