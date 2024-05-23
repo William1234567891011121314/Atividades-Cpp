@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "loan.hpp"
-#include "book.hpp"
+
 
 class Usuario {
 public:
@@ -18,8 +18,9 @@ public:
     void setSenha(std::string _senha) {
         senha = _senha;
     }
-    void makeEmprestimo(Livro novolivro) {
-        Emprestimo* _emprestimo = new Emprestimo();
+    void makeEmprestimo(Livro novoLivro) {
+        Emprestimo* _emprestimo = new Emprestimo(novoLivro);
+        _emprestimo->setLivroEmprestado(novoLivro.titulo);
         emprestimo.push_back(_emprestimo);
     }
     std::string getCpf() {
@@ -31,11 +32,14 @@ public:
     std::string getSenha() {
         return senha;
     }
+    void listarEmprestimo() {
+        for (int i = 0; i < sizeof(emprestimo); i++) {
+            std::cout << "Título do livro: " << emprestimo[i]->getLivroEmprestado() << "Data de saída: " << emprestimo[i]->getDtaSaida() << "Data de entrega: " << emprestimo[i]->getDtaEntrada() << "\n==============\n";
+        }
+    }
 private:
     std::string cpf;
     std::string login;
     std::string senha;
     std::vector<Emprestimo*> emprestimo;
 };
-
-std::vector<Usuario*> userVector;
