@@ -2,11 +2,8 @@
 #include <vector>
 #include <chrono>
 #include "book.hpp"
-#include "book.hpp"
 
 class Emprestimo {
-public:
-    Emprestimo(Livro livro) {
 public:
     Emprestimo(Livro livro) {
         multa = 0;
@@ -26,26 +23,14 @@ public:
     std::string getLivroEmprestado() {
         return livroEmprestado;
     }
-    void setLivroEmprestado(std::string _livroEmprestado) {
-        livroEmprestado = _livroEmprestado;
-    }
-    std::string getLivroEmprestado() {
-        return livroEmprestado;
-    }
     std::string getDtaSaida() {
         std::time_t dtaSaida2 = std::chrono::system_clock::to_time_t(dtaSaida);
-        char buffer[50];
-        ctime_s(buffer, sizeof(buffer), &dtaSaida2);
-        return std::string(buffer);
         char buffer[50];
         ctime_s(buffer, sizeof(buffer), &dtaSaida2);
         return std::string(buffer);
     }
     std::string getDtaEntrada() {
         std::time_t dtaEntrada2 = std::chrono::system_clock::to_time_t(dtaEntrada);
-        char buffer[50];
-        ctime_s(buffer, sizeof(buffer), &dtaEntrada2);
-        return std::string(buffer);
         char buffer[50];
         ctime_s(buffer, sizeof(buffer), &dtaEntrada2);
         return std::string(buffer);
@@ -57,6 +42,5 @@ protected:
     std::chrono::time_point<std::chrono::system_clock> dtaSaida;
     std::chrono::time_point<std::chrono::system_clock> dtaEntrada;
     std::string livroEmprestado;
-    std::string livroEmprestado;
     float multa;
-};
+    };
