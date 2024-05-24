@@ -20,6 +20,9 @@ public:
     void makeEmprestimo(Livro novoLivro) {
         Emprestimo* _emprestimo = new Emprestimo(novoLivro);
         _emprestimo->setLivroEmprestado(novoLivro.titulo);
+    void makeEmprestimo(Livro novoLivro) {
+        Emprestimo* _emprestimo = new Emprestimo(novoLivro);
+        _emprestimo->setLivroEmprestado(novoLivro.titulo);
         emprestimo.push_back(_emprestimo);
     }
     std::string getCpf() {

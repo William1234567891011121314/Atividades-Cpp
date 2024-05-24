@@ -8,6 +8,7 @@
 int logOpc() {
     int opc;
     std::cout << "Digite uma opção:\n1 - Entrar\n2 - Cadastrar\n";
+    std::cout << "Digite uma opção:\n1 - Entrar\n2 - Cadastrar\n";
     std::cin >> opc;
     return opc;
 }
@@ -26,6 +27,7 @@ int loginUsuario(std::vector<Usuario*>& userVector) {
                 std::cout << "Digite a sua senha:\n";
                 std::cin >> senha;
                 if (userVector[i]->getSenha() == senha) {
+                    std::cout << "==================\n\nVocê está logado como: " << userVector[i]->nome << "\n\n==================\n";
                     std::cout << "==================\n\nVocê está logado como: " << userVector[i]->nome << "\n\n==================\n";
                     pass = true;
                     return i;
@@ -98,6 +100,7 @@ void cadastroUsuario(std::vector<Usuario*>& userVector, std::string adminPasswd)
 
 void mazeopc(std::vector<Usuario*> userVector, std::vector<Livro*> books, int bookId, std::string adminPasswd) {
     int userId = -1;
+    while (userId == -1) {
     while (userId == -1) {
         if (logOpc() == 1) {
             userId = loginUsuario(userVector);
