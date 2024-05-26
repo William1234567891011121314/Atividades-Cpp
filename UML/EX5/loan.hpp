@@ -29,11 +29,8 @@ public:
         ctime_s(buffer, sizeof(buffer), &dtaSaida2);
         return std::string(buffer);
     }
-    std::string getDtaEntrada() {
-        std::time_t dtaEntrada2 = std::chrono::system_clock::to_time_t(dtaEntrada);
-        char buffer[50];
-        ctime_s(buffer, sizeof(buffer), &dtaEntrada2);
-        return std::string(buffer);
+    std::chrono::time_point<std::chrono::system_clock> getDtaEntrada() {
+        return dtaEntrada;
     }
     float getMulta() {
         return multa;
@@ -43,4 +40,4 @@ protected:
     std::chrono::time_point<std::chrono::system_clock> dtaEntrada;
     std::string livroEmprestado;
     float multa;
-    };
+};
